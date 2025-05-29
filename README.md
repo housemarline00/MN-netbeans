@@ -11,7 +11,7 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 2
-[Contenido tema 2](Tema 2.txt)
+https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202
 
 <br>
 
