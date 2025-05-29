@@ -1,0 +1,143 @@
+## Una ecuación diferencial es una ecuación matemática que relaciona una función con sus derivadas. Las ecuaciones 
+diferenciales son fundamentales en diversas áreas de la ciencia y la ingeniería porque describen cómo cambian las
+cantidades con el tiempo o con respecto a otras variables.
+
+Solución de Ecuaciones Diferenciales
+La solución de una ecuación diferencial puede ser explícita o implícita, y a menudo requiere métodos analíticos o numéricos.
+Métodos Analíticos:
+-Ecuaciones separables
+-Factores integrantes: Usados para ecuaciones lineales de primer orden.
+-Transformada de Laplace: Para resolver ecuaciones lineales con condiciones iniciales.
+-Series de potencias: Para ecuaciones donde la solución puede expresarse como una serie.
+
+Métodos Numéricos:
+Método de Euler: Aproximación simple y directa.
+Métodos de Runge-Kutta: Más precisos y usados ampliamente en aplicaciones prácticas.
+
+# ----------Solución de ecuaciones diferenciales Método de un paso-------------
+Los métodos numéricos de un paso son técnicas utilizadas para aproximar la solución de ecuaciones diferenciales
+ordinarias (EDO). Estos métodos son especialmente útiles cuando la solución analítica de una EDO es difícil o imposible
+de obtener.
+ Aquí, se presentarán algunos de los métodos de un paso más comunes:
+-Método de Euler:
+El método de Euler es el más sencillo y básico de los métodos de un paso. Se basa en la idea de aproximar la curva
+de solución mediante segmentos de recta.
+-Método de Euler Mejorado (o método del punto medio):
+También conocido como método de Euler modificado o método de Heun, mejora la precisión utilizando una estimación del valor 
+medio de la pendiente en el intervalo.
+-Método de Runge-Kutta de 2º orden (RK2):
+Este método utiliza una combinación de pendientes para mejorar la precisión en la aproximación.
+-Método de Runge-Kutta de 4º orden (RK4):
+Este es uno de los métodos más populares debido a su buena precisión y estabilidad.
+----------------------------------------------------------------------------------------
+
+-----------------------Algoritmo----------------------------
+metodo_euler:
+  descripcion: "Método de Euler para la resolución numérica de ecuaciones diferenciales ordinarias (EDO)."
+  pasos:
+    - paso: 1
+      descripcion: "Definir la función f(t, y) que representa la EDO dy/dt = f(t, y)."
+      ejemplo: "f(t, y) = -2 * y"
+    - paso: 2
+      descripcion: "Inicializar los valores de t y y con las condiciones iniciales."
+      ejemplo:
+        t0: 0
+        y0: 1
+    - paso: 3
+      descripcion: "Establecer el tamaño del paso h y el número máximo de pasos n_steps."
+      ejemplo:
+        h: 0.1
+        t_max: 1
+        n_steps: "n_steps = int(t_max / h)"
+    - paso: 4
+      descripcion: "Inicializar los arreglos para almacenar los valores de t y y."
+      ejemplo:
+        t_array: "t = np.linspace(t0, t_max, n_steps + 1)"
+        y_array: "y = np.zeros(n_steps + 1)"
+        y_initial: "y[0] = y0"
+    - paso: 5
+      descripcion: "Iterar desde 0 hasta n_steps, actualizando los valores de y utilizando el método de Euler."
+--------------------------------------------------------------------------------------------------------------------
+
+-------------------------IMPLEMENTACIÓN EN JAVA---------------------------------
+package metodoeuler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class MetodoEuler {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Método de Euler para resolver ecuaciones diferenciales");
+        System.out.print("Introduce la función f(x, y) que define la derivada y' = f(x, y): ");
+        String funcion = scanner.nextLine();
+
+        System.out.print("Introduce el valor inicial de x (x0): ");
+        double x0 = scanner.nextDouble();
+
+        System.out.print("Introduce el valor inicial de y (y0): ");
+        double y0 = scanner.nextDouble();
+
+        System.out.print("Introduce el tamaño del paso (h): ");
+        double h = scanner.nextDouble();
+
+        System.out.print("Introduce el número de pasos (n): ");
+        int n = scanner.nextInt();
+
+        List<double[]> resultados = metodoEuler(funcion, x0, y0, h, n);
+
+        System.out.println("\nResultados:");
+        for (double[] par : resultados) {
+            System.out.printf("x: %.4f, y: %.4f%n", par[0], par[1]);
+        }
+
+        scanner.close();
+    }
+
+    public static List<double[]> metodoEuler(String funcion, double x0, double y0, double h, int n) {
+        List<double[]> resultados = new ArrayList<>();
+        double x = x0;
+        double y = y0;
+        resultados.add(new double[]{x, y});
+
+        for (int i = 0; i < n; i++) {
+            y += h * evaluarFuncion(funcion, x, y);
+            x += h;
+            resultados.add(new double[]{x, y});
+        }
+
+        return resultados;
+    }
+
+    public static double evaluarFuncion(String funcion, double x, double y) {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("JavaScript");
+        funcion = funcion.replace("x", Double.toString(x)).replace("y", Double.toString(y));
+        try {
+            return (double) engine.eval(funcion);
+        } catch (ScriptException e) {
+            System.out.println("Error al evaluar la función: " + e.getMessage());
+            return 0;
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+-----------------------Salida de pantalla--------------------------
+Método de Euler para resolver ecuaciones diferenciales
+Introduce la función f(x, y) que define la derivada y' = f(x, y): 2x-2
+Introduce el valor inicial de x (x0): 5
+Introduce el valor inicial de y (y0): 3
+Introduce el tamaño del paso (h): 2
+Introduce el número de pasos (n): 1
+
+Resultados:
+x: 5.0000, y: 3.0000
+x: 7.0000, y: 49.0000
+------------------------------------------------------------------------
