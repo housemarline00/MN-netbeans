@@ -24,7 +24,7 @@ solución.
 
 
 
-# ---Regla Falsa:
+# Regla Falsa:
 El método de la regla falsa, también conocido como regula falsi o falsa posición, es un método iterativo para
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
