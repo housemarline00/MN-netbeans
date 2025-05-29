@@ -16,6 +16,9 @@ https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d
 https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa
 
 https://github.com/housemarline00/MN-netbeans/blob/1174e1dd911dc9e63402ade51bbc019407a88564/M%C3%A9todo%20de%20Newton
+
+https://github.com/housemarline00/MN-netbeans/blob/f83091b33214d39277bf5ce17d90a2a2fb254c51/M%C3%A9todo%20de%20Secante
+
 <br>
 
 
