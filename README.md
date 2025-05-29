@@ -35,7 +35,7 @@ Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 5
 
-https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205
+-[Interpolación Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205)
 
 <br>
 
