@@ -9,3 +9,15 @@ exacta mediante métodos analíticos.
 Los métodos numéricos sirven para resolver una variedad de problemas en los que es 
 necesario obtener soluciones aproximadas mediante cálculos numéricos. 
 Algunas de las razones por las que se utilizan estos métodos incluyen:
+
+## Tema 2
+[Contenido tema 2](Tema 2.txt)
+
+<br>
+
+
+## Tema 3
+## Tema 4
+## Tema 5
+## Tema 6
+
