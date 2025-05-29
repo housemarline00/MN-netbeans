@@ -11,7 +11,7 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 2
-[Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
+- [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
 
 [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
 
