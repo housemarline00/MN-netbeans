@@ -136,7 +136,7 @@ resolver numéricamente ecuaciones no lineales. Este método combina el método 
 # Algoritmo
 
 
-# IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA
 import java.util.Scanner;
 import java.util.function.Function;
 
