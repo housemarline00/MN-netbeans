@@ -11,7 +11,7 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 2
--### [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
+- [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
 # Método de bisección:
 El método de bisección es un algoritmo utilizado para encontrar las raíces de una función continua en un intervalo dado. 
 Este método es simple pero efectivo y se basa en el teorema del valor intermedio.El método de bisección garantiza la convergencia
