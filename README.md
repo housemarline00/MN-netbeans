@@ -12,14 +12,14 @@ Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 2
 - [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
----Método de bisección:
+# Método de bisección:
 El método de bisección es un algoritmo utilizado para encontrar las raíces de una función continua en un intervalo dado. 
 Este método es simple pero efectivo y se basa en el teorema del valor intermedio.El método de bisección garantiza la convergencia
 a una raíz debido a la propiedad de que en cada iteración se reduce a la mitad la longitud del intervalo que contiene la raíz. Sin 
 embargo, puede ser relativamente lento en comparación con otros métodos de búsqueda de raíces, especialmente para funciones con 
 comportamientos complicados. 
 
-----Algoritmo-----
+# Algoritmo-----
 Método_de_Bisección:
   Descripción: |
     El Método de Bisección es un algoritmo para encontrar la raíz de una función continua en un intervalo dado. 
@@ -47,7 +47,7 @@ Método_de_Bisección:
     - Iteraciones: "El número de iteraciones realizadas hasta encontrar la raíz."
 -----------------------------------------------------------------------------------------------------------------------------------
 
----IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA-----
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -131,13 +131,13 @@ public class Main {
 ------------------------------------------
 
 - [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
-##Regla Falsa:
+## Regla Falsa:
 El método de la regla falsa, también conocido como regula falsi o falsa posición, es un método iterativo para
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
 
 
----IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA-----
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -210,11 +210,11 @@ public class Main {
 El Método de Newton, también conocido como Método de Newton-Raphson, es un algoritmo iterativo para encontrar raíces de una función no lineal. 
 El método es especialmente útil cuando se necesita una aproximación numérica rápida y precisa de las raíces de una función.
 
-----Algoritmo-----
+# Algoritmo-----
 
 -----------------------------------------------------------------------------------------------
 
----IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA-----
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -363,7 +363,7 @@ aproximar mejor la raíz de una función. Es una variación del método de Newto
 
 ----------------------------------------------------------------------------------------------------------------------
 
----IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA-----
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
