@@ -553,12 +553,231 @@ public class Main {
 ## Tema 4
 
 - [Metodo de Trapecio](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%204)
+- ## Método de trapecio---------------------
+El método del trapecio es un método numérico para calcular aproximaciones numéricas de integrales definidas. La técnica consiste en dividir el intervalo total 
+en intervalos pequeños y aproximar la curva Y = f(X) en los diversos intervalos pequeños mediante alguna curva más simple cuya integral puede calcularse utilizando
+solamente las ordenadas de los puntos extremos de los intervalos. 
+--------------------------------------------------------------------
+
+# Algoritmo---------------------------
+Método_del_Trapecio:
+  Descripción: 
+    El Método del Trapecio es una técnica de integración numérica que aproxima el valor de una integral definida mediante la suma de áreas de trapecios formados
+debajo de la curva de la función.
+  Paso_a_Paso:
+    - Paso_1: 
+        Definir la función f(x) que se desea integrar en el intervalo [a, b].
+    - Paso_2: 
+        Especificar el límite inferior 'a' y el límite superior 'b' del intervalo de integración.
+    - Paso_3: 
+        Especificar el número de subintervalos 'n' en los que se dividirá el intervalo [a, b]. Cuanto mayor sea 'n', más precisa será la aproximación.
+    - Paso_4: 
+        Calcular el ancho de cada subintervalo h = (b - a) / n.
+    - Paso_5: 
+        Calcular los valores de la función en los extremos de los subintervalos: f(a), f(a + h), f(a + 2h), ..., f(b).
+    - Paso_6: 
+        Sumar todas las áreas de los trapecios formados por los subintervalos utilizando la fórmula:
+        Área = h * (f(a) + 2 * f(a + h) + 2 * f(a + 2h) + ... + f(b)) / 2
+    - Paso_7: 
+        El resultado de la integral aproximada es la suma de todas las áreas calculadas en el paso anterior.
+------------------------------------------------------------------------------------------------------------------
+
+# IMPLEMENTACIÓN EN JAVA-------------------
+package metodotrapecio;
+
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class MetodoTrapecio {
+
+    public static double metodoTrapecio(Function<Double, Double> f, double a, double b, int n) {
+        double h = (b - a) / n;
+        double suma = 0.5 * (f.apply(a) + f.apply(b)); // Sumamos los extremos
+
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            suma += f.apply(x);
+        }
+ 
+        return h * suma;
+    }
+
+    public static double richardsonExtrapolation(Function<Double, Double> f, double a, double b, int n) {
+        double h = (b - a) / n;
+        double hBy2 = h / 2;
+        double suma1 = 0.5 * (f.apply(a) + f.apply(b));
+        double suma2 = 0.0;
+
+        for (int i = 1; i < n; i++) {
+            double x = a + i * h;
+            suma2 += f.apply(x + hBy2);
+        }
+
+        double resultN = h * (suma1 + suma2);
+        double resultNBy4 = (4.0 * metodoTrapecio(f, a, b, n * 2) - metodoTrapecio(f, a, b, n)) / 3.0;
+        return resultNBy4;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese la función f(x):");
+        String funcionStr = scanner.nextLine();
+
+        Function<Double, Double> funcion = x -> {
+            // Evaluamos la función para un valor específico de x
+            return evaluarFuncion(funcionStr, x);
+        };
+
+        System.out.println("Ingrese el límite inferior 'a' de la integral:");
+        double a = scanner.nextDouble();
+
+        System.out.println("Ingrese el límite superior 'b' de la integral:");
+        double b = scanner.nextDouble();
+
+        System.out.println("Ingrese el número inicial de subintervalos 'n':");
+        int n = scanner.nextInt();
+
+        double resultado = richardsonExtrapolation(funcion, a, b, n);
+        System.out.println("El resultado de la integral aproximada es: " + resultado);
+
+        scanner.close();
+    }
+
+    // Función para evaluar una expresión matemática dada una cadena y un valor de x
+    private static double evaluarFuncion(String funcionStr, double x) {
+        // Remplazamos x en la función y evaluamos el resultado
+        return evaluarExpresion(funcionStr.replace("x", Double.toString(x)));
+    }
+
+    // Función para evaluar una expresión matemática dada una cadena
+    private static double evaluarExpresion(String expresion) {
+        try {
+            // Creamos un motor de script
+            ScriptEngineManager manager = new ScriptEngineManager();
+            ScriptEngine engine = manager.getEngineByName("JavaScript");
+
+            // Evaluamos la expresión
+            Object result = engine.eval(expresion);
+            return Double.parseDouble(result.toString());
+        } catch (ScriptException e) {
+            // Manejamos cualquier error de evaluación de la expresión
+            System.out.println("Error al evaluar la función: " + e.getMessage());
+            return 0.0;
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------
+
+----------Salida en pantalla ------------------------
+Ingrese la función f(x):
+4*x/(8*x*x)
+Ingrese el límite inferior 'a' de la integral:
+3
+Ingrese el límite superior 'b' de la integral:
+5
+Ingrese el número inicial de subintervalos 'n':
+100
+El resultado de la integral aproximada es: 0.25541281188478643
+---------------------------------------------
 <br>
 
 
 ## Tema 5
 
 - [Interpolación Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205)
+- ## Métodos de solución de problemas de interpolación-------------------
+Hay varios métodos para resolver problemas de interpolación, que es el proceso de estimar valores desconocidos entre datos conocidos. 
+Aquí hay algunos de los métodos más comunes:
+Interpolación lineal: Es el método más simple y consiste en conectar los puntos conocidos con líneas rectas. Si tienes dos puntos conocidos, 
+puedes encontrar el valor intermedio de manera lineal. Este método es rápido y fácil de implementar, pero puede no ser muy preciso si los datos no están bien distribuidos.
+Interpolación polinómica: Este método implica encontrar un polinomio que pase exactamente por todos los puntos dados. Algunos de los métodos más populares son el método de
+Lagrange y el método de interpolación de Newton. Estos métodos suelen ser más precisos que la interpolación lineal, especialmente si se usan polinomios de grado más alto.
+Interpolación de spline: Los splines son curvas suaves que pasan por los puntos de datos. Se construyen mediante la unión de varias funciones polinómicas más pequeñas a 
+lo largo de intervalos específicos, de modo que la curva resultante sea suave y tenga buenas propiedades de interpolación. Los splines cúbicos son los más comunes y se
+utilizan en una variedad de aplicaciones. Interpolación de Fourier: Este método se utiliza específicamente para datos periódicos o datos que pueden ser considerados como 
+periódicos. Utiliza una serie de funciones sinusoidales para aproximar la función subyacente. Es especialmente útil en el procesamiento de señales y en problemas 
+relacionados con las transformadas de Fourier.Interpolación de vecinos más cercanos: Este método consiste en asignar el valor de un punto desconocido como el mismo 
+valor que el punto conocido más cercano. Es simple y útil cuando se trabaja con datos discretos y no se necesita una función continua. Sin embargo, puede no ser 
+adecuado para conjuntos de datos con ruido o variaciones abruptas.Interpolación de Kriging: Este método se utiliza en la interpolación espacial, especialmente en
+la estimación de valores desconocidos en puntos dentro de una región geográfica. Utiliza un modelo estadístico para predecir valores desconocidos basados en la 
+información proporcionada por los puntos conocidos y su distribución espacial.La elección del método de interpolación depende del tipo de datos, la precisión
+requerida y la complejidad computacional aceptable. Es importante comprender las características de los datos y las limitaciones de cada método antes de seleccionar 
+uno para resolver un problema de interpolación específico.
+
+# interpolación lineal-------------------------------
+La interpolación lineal es un método numérico y gráfico que permite encontrar datos desconocidos entre otros datos ya conocidos. Consiste en trazar una 
+línea recta que pasa por dos puntos conocidos y calcular los valores intermedios según esta recta.
+
+---------------ALGORITMO------------------------
+# Algoritmo Interpolación Lineal:
+
+  Inicio:
+    - Solicitar al usuario los puntos conocidos (x0, y0) y (x1, y1)
+    - Solicitar al usuario el valor de x para interpolar (x)
+    - Calcular la interpolación lineal:
+      - Calcular la pendiente (m) entre los puntos conocidos:
+        m = (y1 - y0) / (x1 - x0)
+      - Calcular el valor de y interpolado utilizando la fórmula:
+        y = y0 + m * (x - x0)
+    - Mostrar el valor interpolado de y para x
+--------------------------------------------------
+
+----------IMPLEMENTACIÓN EN JAVA -------------------
+import java.util.Scanner;
+
+public class InterpolacionLineal {
+    
+    // Método para calcular la interpolación lineal
+    public static double interpolacionLineal(double x0, double y0, double x1, double y1, double x) {
+        return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar los puntos conocidos
+        System.out.println("Ingresa el primer punto conocido (x0, y0):");
+        System.out.print("x0: ");
+        double x0 = scanner.nextDouble();
+        System.out.print("y0: ");
+        double y0 = scanner.nextDouble();
+        
+        System.out.println("Ingresa el segundo punto conocido (x1, y1):");
+        System.out.print("x1: ");
+        double x1 = scanner.nextDouble();
+        System.out.print("y1: ");
+        double y1 = scanner.nextDouble();
+        
+        // Solicitar el valor de x para interpolar
+        System.out.print("Ingresa el valor de x para interpolar: ");
+        double x = scanner.nextDouble();
+        
+        // Calcular la interpolación lineal
+        double y = interpolacionLineal(x0, y0, x1, y1, x);
+        
+        // Mostrar el resultado
+        System.out.println("El valor interpolado de y para x=" + x + " es: " + y);
+        
+        scanner.close();
+    }
+}
+-----------------------------------------------------------------------------
+
+------------Salida en pantalla--------------
+Ingresa el primer punto conocido (x0, y0):
+x0: 1
+y0: 0
+Ingresa el segundo punto conocido (x1, y1):
+x1: 6
+y1: 1.7918
+Ingresa el valor de x para interpolar: 2
+El valor interpolado de y para x=2.0 es: 0.35836
+--------------------------------------------------
 
 <br>
 
@@ -566,6 +785,149 @@ public class Main {
 ## Tema 6
 
 - [Método de Euler](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%206)
+- ## Una ecuación diferencial es una ecuación matemática que relaciona una función con sus derivadas. Las ecuaciones 
+diferenciales son fundamentales en diversas áreas de la ciencia y la ingeniería porque describen cómo cambian las
+cantidades con el tiempo o con respecto a otras variables.
+
+Solución de Ecuaciones Diferenciales
+La solución de una ecuación diferencial puede ser explícita o implícita, y a menudo requiere métodos analíticos o numéricos.
+Métodos Analíticos:
+-Ecuaciones separables
+-Factores integrantes: Usados para ecuaciones lineales de primer orden.
+-Transformada de Laplace: Para resolver ecuaciones lineales con condiciones iniciales.
+-Series de potencias: Para ecuaciones donde la solución puede expresarse como una serie.
+
+Métodos Numéricos:
+Método de Euler: Aproximación simple y directa.
+Métodos de Runge-Kutta: Más precisos y usados ampliamente en aplicaciones prácticas.
+
+# ----------Solución de ecuaciones diferenciales Método de un paso-------------
+Los métodos numéricos de un paso son técnicas utilizadas para aproximar la solución de ecuaciones diferenciales
+ordinarias (EDO). Estos métodos son especialmente útiles cuando la solución analítica de una EDO es difícil o imposible
+de obtener.
+ Aquí, se presentarán algunos de los métodos de un paso más comunes:
+-Método de Euler:
+El método de Euler es el más sencillo y básico de los métodos de un paso. Se basa en la idea de aproximar la curva
+de solución mediante segmentos de recta.
+-Método de Euler Mejorado (o método del punto medio):
+También conocido como método de Euler modificado o método de Heun, mejora la precisión utilizando una estimación del valor 
+medio de la pendiente en el intervalo.
+-Método de Runge-Kutta de 2º orden (RK2):
+Este método utiliza una combinación de pendientes para mejorar la precisión en la aproximación.
+-Método de Runge-Kutta de 4º orden (RK4):
+Este es uno de los métodos más populares debido a su buena precisión y estabilidad.
+----------------------------------------------------------------------------------------
+
+-----------------------Algoritmo----------------------------
+metodo_euler:
+  descripcion: "Método de Euler para la resolución numérica de ecuaciones diferenciales ordinarias (EDO)."
+  pasos:
+    - paso: 1
+      descripcion: "Definir la función f(t, y) que representa la EDO dy/dt = f(t, y)."
+      ejemplo: "f(t, y) = -2 * y"
+    - paso: 2
+      descripcion: "Inicializar los valores de t y y con las condiciones iniciales."
+      ejemplo:
+        t0: 0
+        y0: 1
+    - paso: 3
+      descripcion: "Establecer el tamaño del paso h y el número máximo de pasos n_steps."
+      ejemplo:
+        h: 0.1
+        t_max: 1
+        n_steps: "n_steps = int(t_max / h)"
+    - paso: 4
+      descripcion: "Inicializar los arreglos para almacenar los valores de t y y."
+      ejemplo:
+        t_array: "t = np.linspace(t0, t_max, n_steps + 1)"
+        y_array: "y = np.zeros(n_steps + 1)"
+        y_initial: "y[0] = y0"
+    - paso: 5
+      descripcion: "Iterar desde 0 hasta n_steps, actualizando los valores de y utilizando el método de Euler."
+--------------------------------------------------------------------------------------------------------------------
+
+-------------------------IMPLEMENTACIÓN EN JAVA---------------------------------
+package metodoeuler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class MetodoEuler {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Método de Euler para resolver ecuaciones diferenciales");
+        System.out.print("Introduce la función f(x, y) que define la derivada y' = f(x, y): ");
+        String funcion = scanner.nextLine();
+
+        System.out.print("Introduce el valor inicial de x (x0): ");
+        double x0 = scanner.nextDouble();
+
+        System.out.print("Introduce el valor inicial de y (y0): ");
+        double y0 = scanner.nextDouble();
+
+        System.out.print("Introduce el tamaño del paso (h): ");
+        double h = scanner.nextDouble();
+
+        System.out.print("Introduce el número de pasos (n): ");
+        int n = scanner.nextInt();
+
+        List<double[]> resultados = metodoEuler(funcion, x0, y0, h, n);
+
+        System.out.println("\nResultados:");
+        for (double[] par : resultados) {
+            System.out.printf("x: %.4f, y: %.4f%n", par[0], par[1]);
+        }
+
+        scanner.close();
+    }
+
+    public static List<double[]> metodoEuler(String funcion, double x0, double y0, double h, int n) {
+        List<double[]> resultados = new ArrayList<>();
+        double x = x0;
+        double y = y0;
+        resultados.add(new double[]{x, y});
+
+        for (int i = 0; i < n; i++) {
+            y += h * evaluarFuncion(funcion, x, y);
+            x += h;
+            resultados.add(new double[]{x, y});
+        }
+
+        return resultados;
+    }
+
+    public static double evaluarFuncion(String funcion, double x, double y) {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("JavaScript");
+        funcion = funcion.replace("x", Double.toString(x)).replace("y", Double.toString(y));
+        try {
+            return (double) engine.eval(funcion);
+        } catch (ScriptException e) {
+            System.out.println("Error al evaluar la función: " + e.getMessage());
+            return 0;
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------
+
+-----------------------Salida de pantalla--------------------------
+Método de Euler para resolver ecuaciones diferenciales
+Introduce la función f(x, y) que define la derivada y' = f(x, y): 2x-2
+Introduce el valor inicial de x (x0): 5
+Introduce el valor inicial de y (y0): 3
+Introduce el tamaño del paso (h): 2
+Introduce el número de pasos (n): 1
+
+Resultados:
+x: 5.0000, y: 3.0000
+x: 7.0000, y: 49.0000
+--------------------------------------
 <br>
 
 
