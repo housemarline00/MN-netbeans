@@ -9,7 +9,7 @@ problemas de manera eficiente. Además, los sistemas de ecuaciones lineales son 
 avanzados y proporcionan una herramienta fundamental en el desarrollo de tecnologías innovadoras. Su comprensión es crucial 
 para abordar problemas complejos en numerosos campos de estudio y aplicación.
 
-# ---Método de Gauss-Seidel:
+# Método de Gauss-Seidel:
 En el método de Gauss-Seidel se propone ir sustituyendo los nuevos valores de la aproximación siguiente conforme 
 se vayan obteniendo sin esperar a tener un vector completo. De esta forma se acelera la convergencia.
 
@@ -32,7 +32,7 @@ Algoritmo_de_Gauss_Seidel:
     La velocidad de convergencia puede variar dependiendo de la naturaleza del sistema.
 -------------------------------------------------------------------------------------------------------------
 
----IMPLEMENTACIÓN EN JAVA-----
+IMPLEMENTACIÓN EN JAVA-----
 import java.util.Scanner;
 
 public class Main {
