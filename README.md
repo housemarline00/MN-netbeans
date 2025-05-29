@@ -19,7 +19,7 @@ a una raíz debido a la propiedad de que en cada iteración se reduce a la mitad
 embargo, puede ser relativamente lento en comparación con otros métodos de búsqueda de raíces, especialmente para funciones con 
 comportamientos complicados. 
 
-# Algoritmo-----
+# Algoritmo
 Método_de_Bisección:
   Descripción: |
     El Método de Bisección es un algoritmo para encontrar la raíz de una función continua en un intervalo dado. 
@@ -42,12 +42,10 @@ Método_de_Bisección:
         - Si f(c) y f(b) tienen signos opuestos, establecer a = c.
         - Repetir hasta que se cumpla la condición de convergencia o se alcance el número máximo de iteraciones.
 
-  Resultado:
-    - Raíz: "El valor de c cuando se alcanza la precisión deseada."
-    - Iteraciones: "El número de iteraciones realizadas hasta encontrar la raíz."
+ 
 -----------------------------------------------------------------------------------------------------------------------------------
 
-# IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -135,6 +133,7 @@ public class Main {
 El método de la regla falsa, también conocido como regula falsi o falsa posición, es un método iterativo para
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
+# Algoritmo
 
 
 # IMPLEMENTACIÓN EN JAVA-----
@@ -210,7 +209,7 @@ public class Main {
 El Método de Newton, también conocido como Método de Newton-Raphson, es un algoritmo iterativo para encontrar raíces de una función no lineal. 
 El método es especialmente útil cuando se necesita una aproximación numérica rápida y precisa de las raíces de una función.
 
-# Algoritmo-----
+# Algoritmo
 
 -----------------------------------------------------------------------------------------------
 
@@ -360,10 +359,10 @@ public class Main {
 El método de la secante es un algoritmo de investigación de raíces que utiliza una serie de raíces de líneas secantes para 
 aproximar mejor la raíz de una función. Es una variación del método de Newton-Raphson.
 
-
+# Algoritmo
 ----------------------------------------------------------------------------------------------------------------------
 
-# IMPLEMENTACIÓN EN JAVA-----
+# IMPLEMENTACIÓN EN JAVA
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
