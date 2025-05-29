@@ -24,7 +24,7 @@ Algunas de las razones por las que se utilizan estos métodos incluyen:
 
 ## Tema 3
 
-- [Interpolacion Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%203)
+- [Método de Gauss-Seidel](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%203)
 <br>
 
 ## Tema 4
