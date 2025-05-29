@@ -548,6 +548,188 @@ public class Main {
     }
 }
 -----------------------------------------
+- [Eliminación Gaussiana](https://github.com/housemarline00/MN-netbeans/blob/40f365f85dba7d4d89b7e3da1f8bdeaf7d0c4bb5/Eliminaci%C3%B3n%20Gaussiana)
+- ## Eliminación Gaussiana:
+La Eliminación Gaussiana, también conocida como el método de eliminación de Gauss, es un algoritmo utilizado 
+para resolver sistemas de ecuaciones lineales. El objetivo de este método es transformar un sistema de ecuaciones
+lineales en otro equivalente pero más simple, hasta llegar a un sistema triangular que puede ser fácilmente resuelto 
+mediante sustitución hacia atrás.
+
+# Algoritmo//Eliminación Gaussiana
+Entrada: Una matriz A de coeficientes de tamaño n x n y un vector b de tamaño n (sistema de ecuaciones lineales Ax = b)
+Salida: La solución del sistema de ecuaciones lineales
+
+1. Para k desde 1 hasta n-1 hacer:
+   a. Para i desde k+1 hasta n hacer:
+      i. Calcular el factor multiplicativo m = A[i][k] / A[k][k]
+      ii. Para j desde k+1 hasta n hacer:
+          1. A[i][j] = A[i][j] - m * A[k][j]
+      iii. b[i] = b[i] - m * b[k]
+      
+2. Resolución hacia atrás:
+   a. Para i desde n hasta 1, decrementando:
+      i. Inicializar sum = 0
+      ii. Para j desde i+1 hasta n hacer:
+          1. sum = sum + A[i][j] * x[j]
+      iii. x[i] = (b[i] - sum) / A[i][i]
+
+3. Devolver el vector solución x
+--------------------------------------------------------------------------------------------------------------------------
+
+# IMPLEMENTACIÓN EN JAVA
+import java.util.Scanner;
+public class GaussianElimination {
+    
+    public static double[] solve(double[][] A, double[] b) {
+        int n = A.length;
+        // Eliminación hacia adelante
+        for (int k = 0; k < n-1; k++) {
+            for (int i = k+1; i < n; i++) {
+                double factor = A[i][k] / A[k][k];
+                for (int j = k+1; j < n; j++) {
+                    A[i][j] -= factor * A[k][j];
+                }
+                b[i] -= factor * b[k];
+            }
+        }
+        // Sustitución hacia atrás
+        double[] x = new double[n];
+        for (int i = n-1; i >= 0; i--) {
+            double sum = 0.0;
+            for (int j = i+1; j < n; j++) {
+                sum += A[i][j] * x[j];
+            }
+            x[i] = (b[i] - sum) / A[i][i];
+        }
+        return x;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el tamaño de la matriz cuadrada: ");
+        int n = scanner.nextInt();
+        
+        double[][] A = new double[n][n];
+        double[] b = new double[n];
+        
+        System.out.println("Ingrese los elementos de la matriz A:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("Fila " + (i+1) + ":");
+            for (int j = 0; j < n; j++) {
+                System.out.print("A[" + i + "][" + j + "] = ");
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+        
+        System.out.println("Ingrese los elementos del vector b:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("b[" + i + "] = ");
+            b[i] = scanner.nextDouble();
+        }
+        
+        double[] x = solve(A, b);
+        
+        System.out.println("Solución del sistema de ecuaciones:");
+        for (int i = 0; i < x.length; i++) {
+            System.out.println("x[" + i + "] = " + x[i]);
+        }
+        scanner.close();
+    }
+}
+-------------------------------------------------
+[Gauss-Jordan](https://github.com/housemarline00/MN-netbeans/blob/e600275c0830994addbd0fb0715503d291e55c0e/Gauss-Jordan)
+## Gauss-Jordan:
+El método de eliminación Gauss-Jordan consiste en representar el sistema de ecuaciones por medio de una matriz y obtener a partir de ella 
+lo que se define como la matriz escalonada equivalente, a través de la cual se determina el tipo de solución de la ecuación.
+
+# Algoritmo //Método de Gauss-Jordan
+Entrada: Una matriz aumentada A (m x n)
+Salida: La matriz A en su forma escalonada reducida por filas
+
+Para k = 1 hasta m hacer:
+    Para i = 1 hasta m hacer:
+        Si i ≠ k entonces:
+            Multiplica la fila k por -A[i,k]/A[k,k] y súmala a la fila i de A
+            
+    Divide la fila k por A[k,k]
+
+    Para j = 1 hasta n hacer:
+        Si j ≠ k entonces:
+            Multiplica la columna k por -A[k,j]/A[k,k] y súmala a la columna j de A
+-------------------------------------------------------------------------------------------------------
+
+# IMPLEMENTACIÓN EN JAVA
+import java.util.Scanner;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese el tamaño de la matriz cuadrada: ");
+        int size = scanner.nextInt();
+        
+        double[][] matrix = new double[size][size + 1]; // Matriz aumentada
+        
+        System.out.println("Ingrese los elementos de la matriz aumentada fila por fila:");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size + 1; j++) {
+                System.out.print("Elemento [" + (i + 1) + "," + (j + 1) + "]: ");
+                matrix[i][j] = scanner.nextDouble();
+            }
+        }
+        
+        gaussJordan(matrix);
+        
+        System.out.println("La matriz en su forma escalonada reducida por filas es:");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size + 1; j++) {
+                if (Math.abs(matrix[i][j] - (int)matrix[i][j]) < 1e-6) {
+                    System.out.print((int)matrix[i][j] + "\t");
+                } else {
+                    System.out.print(matrix[i][j] + "\t");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void gaussJordan(double[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        
+        for (int k = 0; k < rows; k++) {
+            // Pivoteo parcial
+            int maxRow = k;
+            for (int i = k + 1; i < rows; i++) {
+                if (Math.abs(matrix[i][k]) > Math.abs(matrix[maxRow][k])) {
+                    maxRow = i;
+                }
+            }
+            double[] temp = matrix[k];
+            matrix[k] = matrix[maxRow];
+            matrix[maxRow] = temp;
+            
+            // Reducción
+            for (int i = 0; i < rows; i++) {
+                if (i != k) {
+                    double factor = matrix[i][k] / matrix[k][k];
+                    for (int j = k; j < cols; j++) {
+                        matrix[i][j] -= factor * matrix[k][j];
+                    }
+                }
+            }
+            
+            // Normalización
+            double divisor = matrix[k][k];
+            for (int j = k; j < cols; j++) {
+                matrix[k][j] /= divisor;
+            }
+        }
+    }
+}
+-----------------------------------------------------------
+
 <br>
 
 ## Tema 4
