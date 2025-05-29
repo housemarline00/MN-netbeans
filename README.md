@@ -17,7 +17,26 @@ https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d
 
 
 ## Tema 3
+
+https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%203
+<br>
+
 ## Tema 4
+
+https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%204
+<br>
+
+
 ## Tema 5
+
+https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205
+
+<br>
+
+
 ## Tema 6
+
+https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%206
+<br>
+
 
