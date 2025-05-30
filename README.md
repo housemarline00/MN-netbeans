@@ -15,8 +15,7 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 
 
 ### Tema 2
-- [Métodos de Solución de Ecuaciones](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
-- [Definición](https://github.com/housemarline00/MN-netbeans/blob/0eff5ca3264b2e993404500e11bfe3abad0703d7/Definici%C3%B3n)
+- [Definición Métodos de Solución de Ecuaciones](https://github.com/housemarline00/MN-netbeans/blob/0eff5ca3264b2e993404500e11bfe3abad0703d7/Definici%C3%B3n)
 - 
 
 
