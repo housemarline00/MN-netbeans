@@ -1,0 +1,1 @@
+La diferenciación numérica consiste en aproximar la derivada de una función f(x) en un punto utilizando valores discretos de la función, en lugar de su expresión analítica. Esto es útil cuando la función no tiene una forma explícita o es difícil de derivar, o cuando solo se conocen datos en puntos específicos (como en experimentos).
