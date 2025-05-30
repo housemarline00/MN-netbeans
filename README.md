@@ -16,16 +16,14 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 
 ### Tema 2
 - [Definición Métodos de Solución de Ecuaciones](https://github.com/housemarline00/MN-netbeans/blob/0eff5ca3264b2e993404500e11bfe3abad0703d7/Definici%C3%B3n)
- 1. [Bisección](https://github.com/housemarline00/MN-netbeans/blob/faeea6acc149b6ce4537bc9ff5f6dfd9c224085a/Bisecci%C3%B3n)
-- 
-
-
-- [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
   
+ 1. [Bisección](https://github.com/housemarline00/MN-netbeans/blob/faeea6acc149b6ce4537bc9ff5f6dfd9c224085a/Bisecci%C3%B3n)
 
-- [Newton](https://github.com/housemarline00/MN-netbeans/blob/1174e1dd911dc9e63402ade51bbc019407a88564/M%C3%A9todo%20de%20Newton)
+2. [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
+  
+3. [Newton](https://github.com/housemarline00/MN-netbeans/blob/1174e1dd911dc9e63402ade51bbc019407a88564/M%C3%A9todo%20de%20Newton)
 
-- [Secante](https://github.com/housemarline00/MN-netbeans/blob/f83091b33214d39277bf5ce17d90a2a2fb254c51/M%C3%A9todo%20de%20Secante)
+4. [Secante](https://github.com/housemarline00/MN-netbeans/blob/f83091b33214d39277bf5ce17d90a2a2fb254c51/M%C3%A9todo%20de%20Secante)
 
 
 ## Tema 3
