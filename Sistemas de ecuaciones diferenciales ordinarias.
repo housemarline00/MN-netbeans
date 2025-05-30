@@ -1,0 +1,54 @@
+Pseudocódigo 
+Inicio 
+  Definir función f1(x, y, z) = z + x 
+  Definir función f2(x, y, z) = y - x 
+ 
+  Inicializar:  
+    x ← 0 
+    y ← 1 
+    z ← 0 
+    h ← 0.1 
+    n ← 5 
+ 
+  Imprimir encabezado: "x     y     z" 
+  Imprimir valores iniciales: x, y, z 
+ 
+  Para i desde 1 hasta n hacer: 
+    y_siguiente ← y + h * f1(x, y, z) 
+    z_siguiente ← z + h * f2(x, y, z) 
+    x ← x + h 
+    y ← y_siguiente 
+    z ← z_siguiente 
+    Imprimir x, y, z 
+  Fin Para 
+Fin 
+ 
+ 
+Código  
+public class SistemaEDO1 { 
+    public static double f1(double x, double y, double z) { 
+        return z + x; 
+    } 
+ 
+    public static double f2(double x, double y, double z) { 
+        return y - x; 
+    } 
+ 
+    public static void main(String[] args) { 
+        double x = 0, y = 1, z = 0; 
+        double h = 0.1; 
+        int n = 5; 
+ 
+        System.out.println("x\t\ty\t\tz"); 
+        System.out.printf("%.4f\t%.4f\t%.4f%n", x, y, z); 
+ 
+        for (int i = 0; i < n; i++) { 
+            double yNext = y + h * f1(x, y, z); 
+            double zNext = z + h * f2(x, y, z); 
+            x = x + h; 
+            y = yNext; 
+            z = zNext; 
+            System.out.printf("%.4f\t%.4f\t%.4f%n", x, y, z); 
+        } 
+    } 
+} 
