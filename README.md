@@ -8,7 +8,7 @@ exacta mediante métodos analíticos.
 
 Los métodos numéricos sirven para resolver una variedad de problemas en los que es 
 necesario obtener soluciones aproximadas mediante cálculos numéricos. 
-Algunas de las razones por las que se utilizan estos métodos incluyen:
+
 
 ## Tema 2
 - [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
@@ -43,7 +43,7 @@ Método_de_Bisección:
         - Repetir hasta que se cumpla la condición de convergencia o se alcance el número máximo de iteraciones.
 
  
------------------------------------------------------------------------------------------------------------------------------------
+
 
 # IMPLEMENTACIÓN EN JAVA
 
@@ -126,11 +126,13 @@ public class Main {
         return (a + b) / 2;
     }
 }
-------------------------------------------
+
+
 
 - [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
+  
 ## Regla Falsa:
-El método de la regla falsa, también conocido como regula falsi o falsa posición, es un método iterativo para
+El método de la regla falsa, también conocido como regula falso o falsa posición, es un método iterativo para
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
 # Algoritmo
