@@ -10,12 +10,14 @@ Los métodos numéricos sirven para resolver una variedad de problemas en los qu
 necesario obtener soluciones aproximadas mediante cálculos numéricos. 
 
 ## Tema 1 
- 
+[Tipos de Errores](https://github.com/housemarline00/MN-netbeans/blob/60747a94da77a97f16b0d1f09fb31dff507d275d/Tema%201) 
 
 
 
 ### Tema 2
 - [Métodos de Solución de Ecuaciones](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
+- [Definición](https://github.com/housemarline00/MN-netbeans/blob/0eff5ca3264b2e993404500e11bfe3abad0703d7/Definici%C3%B3n)
+- 
 
 
 - [Regla falsa](https://github.com/housemarline00/MN-netbeans/blob/1e33a171a82eea7398c15235ea6d043a5123bc55/Regla%20Falsa)
