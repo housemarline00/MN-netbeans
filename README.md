@@ -76,4 +76,5 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
  
  2. [-Método de pasos múltiples](https://github.com/housemarline00/MN-netbeans/blob/dea430ddd2405733d699b45ca3b2f1ec83939a8a/-M%C3%A9todo%20de%20pasos%20m%C3%BAltiples)
 
+3. [Sistemas de ecuaciones diferenciales ordinarias](https://github.com/housemarline00/MN-netbeans/blob/d5b9a195e1e47aa386654555fe8f4df925b7efb7/Sistemas%20de%20ecuaciones%20diferenciales%20ordinarias.)
 <br>
