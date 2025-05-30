@@ -1,4 +1,4 @@
-## Introduccion
+### Introduccion
 
 Los métodos numéricos son un conjunto de técnicas matemáticas que se utilizan para resolver 
 problemas en los que se requiere obtener soluciones aproximadas o numéricas, 
@@ -9,8 +9,8 @@ exacta mediante métodos analíticos.
 Los métodos numéricos sirven para resolver una variedad de problemas en los que es 
 necesario obtener soluciones aproximadas mediante cálculos numéricos. 
 
-## Tema 1 
-[Tipos de Errores](https://github.com/housemarline00/MN-netbeans/blob/60747a94da77a97f16b0d1f09fb31dff507d275d/Tema%201) 
+### Tema 1 
+- [Tipos de Errores](https://github.com/housemarline00/MN-netbeans/blob/60747a94da77a97f16b0d1f09fb31dff507d275d/Tema%201) 
 
 
 
@@ -25,30 +25,55 @@ necesario obtener soluciones aproximadas mediante cálculos numéricos.
 
 4. [Secante](https://github.com/housemarline00/MN-netbeans/blob/f83091b33214d39277bf5ce17d90a2a2fb254c51/M%C3%A9todo%20de%20Secante)
 
+<br>
 
-## Tema 3
+### Tema 3
 
-- [Método de Gauss-Seidel](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%203)
+- [Sistema de ecuaciones lineales](https://github.com/housemarline00/MN-netbeans/blob/e61da5aa6e6e35879cacbf13d12e4687d2174ada/Sistema%20de%20ecuaciones%20lineales)
+
+1. [Método de Gauss-Seidel](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%203)
  
-- [Eliminación Gaussiana](https://github.com/housemarline00/MN-netbeans/blob/40f365f85dba7d4d89b7e3da1f8bdeaf7d0c4bb5/Eliminaci%C3%B3n%20Gaussiana)
+2. [Eliminación Gaussiana](https://github.com/housemarline00/MN-netbeans/blob/40f365f85dba7d4d89b7e3da1f8bdeaf7d0c4bb5/Eliminaci%C3%B3n%20Gaussiana)
 
-[Gauss-Jordan](https://github.com/housemarline00/MN-netbeans/blob/e600275c0830994addbd0fb0715503d291e55c0e/Gauss-Jordan)
-
-
+3. [Gauss-Jordan](https://github.com/housemarline00/MN-netbeans/blob/e600275c0830994addbd0fb0715503d291e55c0e/Gauss-Jordan)
+   
+4. [Método de Jacobi](https://github.com/housemarline00/MN-netbeans/blob/9c683488c08044314df6d7a6656c92cfd9951e0a/M%C3%A9todo%20de%20Jacobi)
 
 <br>
 
-## Tema 4
+### Tema 4
 
-- [Metodo de Trapecio](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%204)
+- [Métodos de diferenciación e integración numérica](https://github.com/housemarline00/MN-netbeans/blob/3ecb11363e5b0f695fb9ad3a00d0fa71f97d508b/M%C3%A9todos%20de%20diferenciaci%C3%B3n%20e%20integraci%C3%B3n%20num%C3%A9rica.)
+   
 
-## Tema 5
+1. [Metodo de Trapecio](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%204)
+   
+2. [Metodo Simpson](https://github.com/housemarline00/MN-netbeans/blob/e8b7f8ce7b440628e9a638ef09264cdd1445e3a6/Metodo%20Simpson)
 
-- [Interpolación Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205)
+3. [Método de la Cuadratura Gaussiana](https://github.com/housemarline00/MN-netbeans/blob/8f04dedb63b8c38d21ae6db985af05f63a921b49/M%C3%A9todo%20de%20la%20Cuadratura%20Gaussiana)
+
+<br>
+
+### Tema 5
+
+- [Métodos de solución de problemas de interpolación](https://github.com/housemarline00/MN-netbeans/blob/08510ba39e2ec08f67f68ae56ce7de362d2c6168/M%C3%A9todos%20de%20soluci%C3%B3n%20de%20problemas%20de%20interpolaci%C3%B3n)
+
+1. [Interpolación Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205)
+
+2. [Interpolación Cuadrática](https://github.com/housemarline00/MN-netbeans/blob/5af767713d548a6abe794f7baa22b8dea9dbc901/Interpolaci%C3%B3n%20Cuadr%C3%A1tica)
+
+3. [Interpolación Newton](https://github.com/housemarline00/MN-netbeans/blob/9112ac820dd393bd559bccfd47e2b50341f4c4bf/Interpolaci%C3%B3n%20Newton)
+
+4. [Interpolación Lagrange](https://github.com/housemarline00/MN-netbeans/blob/6562a56c0e8ecf8d0f684fc82d7d565f948bf65f/Interpolaci%C3%B3n%20Lagrange)
 
 <br>
 
 
 ## Tema 6
+- [Solución de Ecuaciones Diferenciales](https://github.com/housemarline00/MN-netbeans/blob/f8805ee327302541d52b00494c7e78090aa8de84/Soluci%C3%B3n%20de%20Ecuaciones%20Diferenciales)
 
-- [Método de Euler](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%206)
+ 1. [Método de un paso](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%206)
+ 
+ 2. [-Método de pasos múltiples](https://github.com/housemarline00/MN-netbeans/blob/dea430ddd2405733d699b45ca3b2f1ec83939a8a/-M%C3%A9todo%20de%20pasos%20m%C3%BAltiples)
+
+<br>
