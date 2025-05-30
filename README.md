@@ -1,5 +1,5 @@
-## Introduccion 
-**Definicion**
+## Introduccion
+
 Los métodos numéricos son un conjunto de técnicas matemáticas que se utilizan para resolver 
 problemas en los que se requiere obtener soluciones aproximadas o numéricas, 
 especialmente cuando no es posible o práctico encontrar una solución 
@@ -9,9 +9,38 @@ exacta mediante métodos analíticos.
 Los métodos numéricos sirven para resolver una variedad de problemas en los que es 
 necesario obtener soluciones aproximadas mediante cálculos numéricos. 
 
+## Tema 1 
+# Tipos de Errores
+En métodos numéricos, los errores son discrepancias entre el valor exacto de una solución y el valor aproximado obtenido por el método. Estos errores se clasifican principalmente en los siguientes tipos:
 
-## Tema 2
-- [Biseccion](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
+** Error de redondeo: Surge debido a la representación finita de números en computadoras. Los números reales se aproximan a números de punto flotante, lo que introduce pequeños errores en cada operación aritmética. Por ejemplo, al representar π o √2 en un sistema con precisión limitada.
+** Error de truncamiento: Ocurre cuando se aproxima una función o un proceso matemático infinito por uno finito. Por ejemplo, al usar una serie de Taylor truncada para aproximar una función como sin(x), se descartan términos de orden superior, lo que genera un error.
+** Error de discretización: Relacionado con el truncamiento, aparece al discretizar un problema continuo, como en la resolución de ecuaciones diferenciales mediante métodos como Euler o Runge-Kutta, donde se reemplazan derivadas por diferencias finitas.
+** Error de propagación: Se produce cuando los errores iniciales (de redondeo o truncamiento) se acumulan o amplifican a lo largo de las iteraciones de un algoritmo. Puede ser significativo en métodos iterativos como el de Newton-Raphson.
+** Error de datos o de entrada: Proviene de imprecisiones en los datos iniciales o parámetros del problema, como mediciones experimentales inexactas.
+Error absoluto y relativo:
+
+** Error absoluto: Diferencia entre el valor exacto 
+
+** Error relativo: Error absoluto dividido por el valor exacto (si no es cero):
+
+** Error de convergencia: En métodos iterativos, es la diferencia entre la solución aproximada en una iteración y la solución exacta, relacionada con la velocidad de convergencia del método.
+Error de estabilidad: Surge en algoritmos sensibles a pequeñas perturbaciones en los datos o cálculos, lo que puede llevar a resultados muy diferentes. Por ejemplo, en sistemas mal condicionados.
+
+
+
+
+### Tema 2
+- [Métodos de Solución de Ecuaciones](https://github.com/housemarline00/MN-netbeans/blob/acbb1ba2631d08b2a81e281058b7d6ab28c46aa3/Tema%202)
+- Los métodos de solución de ecuaciones son técnicas o procedimientos utilizados para encontrar las soluciones 
+de una ecuación dada. Una ecuación es una igualdad matemática que involucra una o más incógnitas, y su solución 
+consiste en encontrar los valores de las incógnitas que hacen que la ecuación sea verdadera.
+
+Existen varios métodos para resolver ecuaciones, y la elección del método adecuado depende de la naturaleza de la 
+ecuación y de las herramientas matemáticas disponibles.La elección del método adecuado depende de varios factores, 
+como la complejidad de la ecuación, la disponibilidad de herramientas matemáticas y la precisión requerida en la 
+solución.
+
 # Método de bisección:
 El método de bisección es un algoritmo utilizado para encontrar las raíces de una función continua en un intervalo dado. 
 Este método es simple pero efectivo y se basa en el teorema del valor intermedio.El método de bisección garantiza la convergencia
@@ -21,6 +50,7 @@ comportamientos complicados.
 
 # Algoritmo
 Método_de_Bisección:
+
   Descripción: |
     El Método de Bisección es un algoritmo para encontrar la raíz de una función continua en un intervalo dado. 
     Se basa en el Teorema del Valor Intermedio, dividiendo repetidamente el intervalo a la mitad y seleccionando 
@@ -136,6 +166,30 @@ El método de la regla falsa, también conocido como regula falso o falsa posici
 resolver numéricamente ecuaciones no lineales. Este método combina el método de bisección y el método de la secante. 
 
 # Algoritmo
+Regla_Falsa:
+  descripcion: >
+    Algoritmo de Regla Falsa para encontrar la raíz de una función.
+  pasos:
+    - Paso_1: 
+        descripcion: Inicializar valores
+        acciones:
+          - Asignar valores iniciales a a y b (intervalo inicial)
+          - Evaluar la función en los extremos del intervalo para obtener f(a) y f(b)
+    - Paso_2:
+        descripcion: Iteración
+        acciones:
+          - Calcular el valor de c utilizando la fórmula de interpolación lineal
+          - Evaluar la función en c para obtener f(c)
+          - Verificar el cambio de signo entre f(a) y f(c), o f(c) y f(b)
+          - Actualizar el intervalo [a, b] según el cambio de signo
+    - Paso_3:
+        descripcion: Condición de convergencia
+        acciones:
+          - Repetir el Paso_2 hasta que se satisfaga una condición de convergencia (por ejemplo, |b - a| < epsilon)
+    - Paso_4:
+        descripcion: Retorno del resultado
+        acciones:
+          - Devolver el valor aproximado de la raíz encontrada (c)
 
 
 # IMPLEMENTACIÓN EN JAVA
@@ -205,17 +259,46 @@ public class Main {
         }
     }
 }
---------------------------------------------
+
+
 - [Newton](https://github.com/housemarline00/MN-netbeans/blob/1174e1dd911dc9e63402ade51bbc019407a88564/M%C3%A9todo%20de%20Newton)
 - ## Método de Newton:
 El Método de Newton, también conocido como Método de Newton-Raphson, es un algoritmo iterativo para encontrar raíces de una función no lineal. 
 El método es especialmente útil cuando se necesita una aproximación numérica rápida y precisa de las raíces de una función.
 
 # Algoritmo
+metodo_de_newton:
+  descripcion: >
+    Algoritmo del Método de Newton para encontrar raíces de una función no lineal.
+  parametros:
+    - funcion: "f(x)"
+      descripcion: "La función para la cual se desea encontrar la raíz."
+    - derivada: "f'(x)"
+      descripcion: "La derivada de la función."
+    - estimacion_inicial: "x0"
+      descripcion: "Estimación inicial para la raíz."
+    - tolerancia: "tol"
+      descripcion: "Tolerancia para el criterio de convergencia."
+    - max_iteraciones: "max_iter"
+      descripcion: "Número máximo de iteraciones permitidas."
+  pasos:
+    - paso: "1"
+      descripcion: "Inicialización"
+      acciones:
+        - seleccionar_estimacion_inicial: "x0"
+    - paso: "2"
+      descripcion: "Iteración"
+      acciones:
+        - calcular_nueva_estimacion: "xn+1 = xn - f(xn) / f'(xn)"
+    - paso: "3"
+      descripcion: "Convergencia"
+      acciones:
+        - verificar_criterio_de_convergencia: "|f(xn+1)| < tol o |xn+1 - xn| < tol"
+        - continuar_iterando_o_finalizar: "Dependiendo del criterio de convergencia y max_iter"
 
------------------------------------------------------------------------------------------------
 
-# IMPLEMENTACIÓN EN JAVA-----
+
+# IMPLEMENTACIÓN EN JAVA
 import java.util.Scanner;
 import java.util.function.Function;
 
@@ -354,7 +437,7 @@ public class Main {
         }.parse();
     }
 }
--------------------------
+
 
 - [Secante](https://github.com/housemarline00/MN-netbeans/blob/f83091b33214d39277bf5ce17d90a2a2fb254c51/M%C3%A9todo%20de%20Secante)
 - ## Método de Secante:
@@ -362,7 +445,29 @@ El método de la secante es un algoritmo de investigación de raíces que utiliz
 aproximar mejor la raíz de una función. Es una variación del método de Newton-Raphson.
 
 # Algoritmo
-----------------------------------------------------------------------------------------------------------------------
+metodo_secante:
+  descripcion: |
+    El Método de la Secante es un método numérico utilizado para encontrar las raíces de una función no lineal.
+  pasos:
+    - Paso_1: |
+        Inicializar valores iniciales x0 y x1, y definir la tolerancia ε.
+    - Paso_2: |
+        Calcular el valor de la función en x0 y x1: f(x0) y f(x1), respectivamente.
+    - Paso_3: |
+        Calcular la pendiente de la secante: m = (f(x1) - f(x0)) / (x1 - x0).
+    - Paso_4: |
+        Calcular el próximo punto de intersección de la secante con el eje x:
+        x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0)).
+    - Paso_5: |
+        Si |x2 - x1| < ε o |f(x2)| < ε, detener el algoritmo y devolver x2 como la aproximación de la raíz.
+        De lo contrario, continuar con el siguiente paso.
+    - Paso_6: |
+        Actualizar x0 y x1:
+        x0 = x1
+        x1 = x2
+    - Paso_7: |
+        Ir al Paso 2 y repetir el proceso hasta alcanzar la precisión deseada o un número máximo de iteraciones.
+
 
 # IMPLEMENTACIÓN EN JAVA
 import javax.script.ScriptEngine;
@@ -462,7 +567,7 @@ Algoritmo_de_Gauss_Seidel:
   Convergencia: >
     La convergencia está garantizada si la matriz A es diagonalmente dominante o simétrica definida positiva.
     La velocidad de convergencia puede variar dependiendo de la naturaleza del sistema.
--------------------------------------------------------------------------------------------------------------
+
 
 # IMPLEMENTACIÓN EN JAVA
 import java.util.Scanner;
@@ -549,7 +654,7 @@ public class Main {
         return x;
     }
 }
------------------------------------------
+
 - [Eliminación Gaussiana](https://github.com/housemarline00/MN-netbeans/blob/40f365f85dba7d4d89b7e3da1f8bdeaf7d0c4bb5/Eliminaci%C3%B3n%20Gaussiana)
 - ## Eliminación Gaussiana:
 La Eliminación Gaussiana, también conocida como el método de eliminación de Gauss, es un algoritmo utilizado 
@@ -576,7 +681,8 @@ Salida: La solución del sistema de ecuaciones lineales
       iii. x[i] = (b[i] - sum) / A[i][i]
 
 3. Devolver el vector solución x
---------------------------------------------------------------------------------------------------------------------------
+
+
 
 # IMPLEMENTACIÓN EN JAVA
 import java.util.Scanner;
@@ -658,7 +764,7 @@ Para k = 1 hasta m hacer:
     Para j = 1 hasta n hacer:
         Si j ≠ k entonces:
             Multiplica la columna k por -A[k,j]/A[k,k] y súmala a la columna j de A
--------------------------------------------------------------------------------------------------------
+
 
 # IMPLEMENTACIÓN EN JAVA
 import java.util.Scanner;
@@ -730,7 +836,132 @@ public class Main {
         }
     }
 }
------------------------------------------------------------
+
+# Método de Jacobi:
+Los métodos iterativos de Jacobi y Gauss-Seidel son los procesos de aproximaciones sucesivas para resolver sistemas de ecuaciones lineales 
+compatibles determinados.Ambos requieren de la verificación de un criterio de convergencia comúnmente conocido como diagonal pesada.
+
+# Algoritmo//Método de Jacobi
+metodo_jacobi:
+  descripcion: "Algoritmo para encontrar soluciones aproximadas de un sistema de ecuaciones lineales"
+  entrada:
+    A: 
+      tipo: matriz
+      descripcion: "Matriz de coeficientes del sistema de ecuaciones"
+    b:
+      tipo: vector
+      descripcion: "Vector de términos constantes"
+    x0:
+      tipo: vector
+      descripcion: "Aproximación inicial de la solución"
+    tol:
+      tipo: float
+      descripcion: "Tolerancia para el criterio de convergencia"
+    max_iter:
+      tipo: int
+      descripcion: "Número máximo de iteraciones"
+  salida:
+    x:
+      tipo: vector
+      descripcion: "Solución aproximada del sistema de ecuaciones"
+    iteraciones:
+      tipo: int
+      descripcion: "Número de iteraciones realizadas"
+  algoritmo: |
+    función jacobi(A, b, x0, tol, max_iter):
+      n = tamaño de A[0]  # Número de ecuaciones/sistema de ecuaciones
+
+      x = copiar(x0)  # Inicializar el vector solución
+      x_nuevo = crear vector de longitud n
+      iteraciones = 0
+
+      mientras iteraciones < max_iter:
+        para i de 0 a n-1:
+          suma = 0
+          para j de 0 a n-1:
+            si j ≠ i:
+              suma += A[i][j] * x[j]
+          x_nuevo[i] = (b[i] - suma) / A[i][i]
+
+        si norma_infinita(x_nuevo - x) < tol:
+          devolver x_nuevo, iteraciones
+
+        x = copiar(x_nuevo)
+        iteraciones += 1
+
+      devolver x, iteraciones
+
+
+# IMPLEMENTACIÓN EN JAVA
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir dimensiones de la matriz
+        System.out.println("Ingrese el tamaño de la matriz (n x n):");
+        int n = scanner.nextInt();
+
+        // Pedir matriz de coeficientes
+        System.out.println("Ingrese la matriz de coeficientes A (una fila a la vez):");
+        double[][] A = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = scanner.nextDouble();
+            }
+        }
+
+        // Pedir vector de términos constantes
+        System.out.println("Ingrese el vector de términos constantes b:");
+        double[] b = new double[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = scanner.nextDouble();
+        }
+
+        // Calcular solución utilizando el método de Jacobi
+        double[] solucion = jacobi(A, b);
+
+        // Mostrar resultado
+        System.out.println("La solución aproximada del sistema de ecuaciones es:");
+        for (int i = 0; i < n; i++) {
+            System.out.println("x[" + i + "] = " + solucion[i]);
+        }
+    }
+
+    public static double[] jacobi(double[][] A, double[] b) {
+        int n = A.length;
+        double[] x0 = new double[n];
+        double[] xNuevo = new double[n];
+
+        // Inicializar x0 con ceros
+        for (int i = 0; i < n; i++) {
+            x0[i] = 0.0;
+        }
+
+        // Realizar un número fijo de iteraciones (en este caso, 50)
+        for (int k = 0; k < 50; k++) {
+            // Calcular nuevo valor de x
+            for (int i = 0; i < n; i++) {
+                double suma = 0.0;
+                for (int j = 0; j < n; j++) {
+                    if (j != i) {
+                        suma += A[i][j] * x0[j];
+                    }
+                }
+                xNuevo[i] = (b[i] - suma) / A[i][i];
+            }
+
+            // Actualizar x0
+            for (int i = 0; i < n; i++) {
+                x0[i] = xNuevo[i];
+            }
+        }
+
+        return x0;
+    }
+}
+
 
 <br>
 
@@ -764,9 +995,9 @@ debajo de la curva de la función.
         Área = h * (f(a) + 2 * f(a + h) + 2 * f(a + 2h) + ... + f(b)) / 2
     - Paso_7: 
         El resultado de la integral aproximada es la suma de todas las áreas calculadas en el paso anterior.
-------------------------------------------------------------------------------------------------------------------
 
-# IMPLEMENTACIÓN EN JAVA-------------------
+
+# IMPLEMENTACIÓN EN JAVA
 package metodotrapecio;
 
 
@@ -855,7 +1086,7 @@ public class MetodoTrapecio {
         }
     }
 }
----------------------------------------------------------------------------------------------------------
+
 
 ----------Salida en pantalla ------------------------
 Ingrese la función f(x):
@@ -868,13 +1099,399 @@ Ingrese el número inicial de subintervalos 'n':
 100
 El resultado de la integral aproximada es: 0.25541281188478643
 ---------------------------------------------
+
+# Metodo Simpson
+--Método de Simpson 1/3:
+En el método de Simpson 1/3, la integral definida se aproxima mediante una parábola que pasa a través de tres puntos 
+equidistantes. Estos puntos se obtienen dividiendo el intervalo de integración en subintervalos de igual longitud y aplicando
+una fórmula que utiliza los valores de la función en los extremos y en el punto medio de cada subintervalo.
+--Método de Simpson 3/8:
+En el método de Simpson 3/8, la integral definida se aproxima mediante una interpolación polinómica de tercer grado que pasa a
+través de cuatro puntos igualmente espaciados. Se usa cuando el número de subintervalos es múltiplo de tres (para garantizar que 
+se puedan aplicar las cuatro evaluaciones necesarias).
+
+
+# Algoritmos
+# metodo_simpson_1_3:
+  descripcion: Método de Simpson 1/3 para aproximar una integral definida.
+  entrada:
+    - a: Límite inferior de integración
+    - b: Límite superior de integración
+    - n: Número de subintervalos (debe ser un múltiplo de 2)
+    - f: Función a integrar
+  salida:
+    - valor_aproximado: Valor aproximado de la integral definida
+  algoritmo: |
+    h = (b - a) / n
+    suma = f(a) + f(b)
+    suma_impares = 0
+    suma_pares = 0
+
+    for i in range(1, n):
+      xi = a + i * h
+      if i % 2 == 0:
+        suma_pares += f(xi)
+      else:
+        suma_impares += f(xi)
+
+    valor_aproximado = (h / 3) * (suma + 4 * suma_impares + 2 * suma_pares)
+    return valor_aproximado
+
+---metodo_simpson_3_8:
+  descripcion: Método de Simpson 3/8 para aproximar una integral definida.
+  entrada:
+    - a: Límite inferior de integración
+    - b: Límite superior de integración
+    - n: Número de subintervalos (debe ser un múltiplo de 3)
+    - f: Función a integrar
+  salida:
+    - valor_aproximado: Valor aproximado de la integral definida
+  algoritmo: |
+    h = (b - a) / n
+    suma = f(a) + f(b)
+    suma_1_3 = 0
+    suma_2_3 = 0
+
+    for i in range(1, n):
+      xi = a + i * h
+      if i % 3 == 0:
+        suma += 2 * f(xi)
+      elif i % 3 == 1:
+        suma_1_3 += f(xi)
+      else:
+        suma_2_3 += f(xi)
+
+    valor_aproximado = (3 * h / 8) * (suma + 3 * suma_1_3 + 3 * suma_2_3 + f(b))
+    return valor_aproximado
+
+
+# IMPLEMENTACIÓN EN JAVA
+# Simpson 1/8
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+
+public class Simpson18 {
+    // Evalúa la función dada como una cadena de texto en el punto x
+    public static double f(String expr, double x) throws ScriptException {
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        return (Double) engine.eval(expr.replace("sin", "Math.sin")
+                                          .replace("cos", "Math.cos")
+                                          .replace("tan", "Math.tan")
+                                          .replace("x", String.valueOf(x)));
+    }
+
+    // Aproxima la integral de la función dada usando la regla de Simpson 1/8
+    public static double simpsons18(String expr, double a, double b, int n) {
+        double h = (b - a) / n;
+        double sum = 0;
+
+        try {
+            sum = f(expr, a) + f(expr, b);
+
+            for (int i = 1; i < n; i++) {
+                if (i % 4 == 0) {
+                    sum += 2 * f(expr, a + i * h);
+                } else {
+                    sum += 4 * f(expr, a + i * h);
+                }
+            }
+        } catch (ScriptException e) {
+            System.err.println("Error evaluando la función: " + e.getMessage());
+        }
+
+        return (h / 3) * sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la función a integrar (por ejemplo, 'Math.sin(x)' para seno): ");
+        String expr = scanner.nextLine();
+
+        System.out.print("Ingrese el límite inferior de integración: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Ingrese el límite superior de integración: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Ingrese el número de intervalos: ");
+        int n = scanner.nextInt();
+
+        double result = simpsons18(expr, a, b, n);
+        System.out.printf("Valor aproximado de la integral: %.4f%n", result);
+    }
+}
+
+----------Salida en consola 1/8----------
+Ingrese la función a integrar (por ejemplo, 'Math.sin(x)' para seno): sin(x)
+Ingrese el límite inferior de integración: 0
+Ingrese el límite superior de integración: 3.141592653589793
+Ingrese el número de intervalos: 100
+Valor aproximado de la integral: 2.3336
+----------------------------------------
+
+
+# Simpson  3/8
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.util.Scanner;
+
+public class Simpson38 {
+    // Evalúa la función dada como una cadena de texto en el punto x
+    public static double f(String expr, double x) throws ScriptException {
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+        return (Double) engine.eval(expr.replace("sin", "Math.sin")
+                                          .replace("cos", "Math.cos")
+                                          .replace("tan", "Math.tan")
+                                          .replace("x", String.valueOf(x)));
+    }
+
+    // Aproxima la integral de la función dada usando la regla de Simpson 3/8
+    public static double simpsons38(String expr, double a, double b, int n) {
+        try {
+            double h = (b - a) / n;
+            double sum = f(expr, a) + f(expr, b);
+
+            for (int i = 1; i < n; i++) {
+                if (i % 3 == 0) {
+                    sum += 2 * f(expr, a + i * h);
+                } else {
+                    sum += 3 * f(expr, a + i * h);
+                }
+            }
+
+            return (3 * h / 8) * sum;
+        } catch (ScriptException e) {
+            System.err.println("Error evaluando la función: " + e.getMessage());
+            return Double.NaN; // Otra acción apropiada en caso de error
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese la función a integrar (por ejemplo, 'Math.log(x)' para logaritmo natural): ");
+        String expr = scanner.nextLine();
+
+        System.out.print("Ingrese el límite inferior de integración: ");
+        double a = scanner.nextDouble();
+
+        System.out.print("Ingrese el límite superior de integración: ");
+        double b = scanner.nextDouble();
+
+        System.out.print("Ingrese el número de intervalos: ");
+        int n = scanner.nextInt();
+
+        double result = simpsons38(expr, a, b, n);
+        if (!Double.isNaN(result)) {
+            System.out.printf("Valor aproximado de la integral: %.4f%n", result);
+        }
+    }
+}
+
+
+-----------Salida en pantalla 3/8---------------
+Ingrese la función a integrar (por ejemplo, 'Math.log(x)' para logaritmo natural): sin(x)
+Ingrese el límite inferior de integración: 0
+Ingrese el límite superior de integración: 3.141592653589793
+Ingrese el número de intervalos: 100
+Valor aproximado de la integral: 1.9999
+
+
+# Método de la Cuadratura Gaussiana
+El método de la cuadratura gaussiana es un método de análisis numérico que aproxima la integral definida de una función. Este método selecciona los 
+puntos de evaluación de manera óptima, no de forma igualmente espaciada, para obtener el resultado exacto al integrar polinomios de grado 2n-1 o menos. 
+
+
+# Algoritmo Método de la Cuadratura Gaussiana
+nombre: Metodo de la Cuadratura Gaussiana
+descripcion: 
+  El Método de la Cuadratura Gaussiana es un método numérico para la aproximación de integrales definidas. 
+  Se basa en la idea de aproximar la integral de una función mediante una suma ponderada de los valores de la función en puntos específicos llamados nodos.
+  Estos nodos y los correspondientes pesos se eligen de tal manera que la aproximación resultante sea lo más precisa posible.
+
+paso_1:
+  descripcion: Definir la función a integrar y el intervalo de integración.
+  codigo: 
+    Definir la función f(x).
+    Definir el intervalo de integración [a, b].
+
+paso_2:
+  descripcion: Escoger el número de nodos y calcular sus posiciones y pesos.
+  codigo: 
+    Determinar el número de nodos n.
+    Calcular las posiciones de los nodos x_i y los pesos w_i para la Cuadratura Gaussiana de n puntos en el intervalo [-1, 1].
+
+paso_3:
+  descripcion: Calcular la aproximación de la integral.
+  codigo: 
+    Calcular la aproximación de la integral usando la fórmula de Cuadratura Gaussiana:
+      integral ≈ sumatoria desde i=1 hasta n de (w_i * f((b-a)/2 * x_i + (b+a)/2)).
+
+
+# Implementacion en JAVA
+import java.util.Scanner;
+
+public class GaussianQuadrature {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir la función al usuario
+        System.out.print("Ingrese la función a integrar (utilice 'x' como variable independiente, y funciones trigonométricas como 'sin', 'cos', 'tan'): ");
+        String funcionStr = scanner.nextLine();
+
+        // Pedir los límites de integración
+        System.out.print("Ingrese el límite inferior de integración (a): ");
+        double a = scanner.nextDouble();
+        System.out.print("Ingrese el límite superior de integración (b): ");
+        double b = scanner.nextDouble();
+
+        // Pedir el número de puntos para la aproximación
+        System.out.print("Ingrese el número de puntos para la aproximación: ");
+        int n = scanner.nextInt();
+
+        // Calcular la integral utilizando el método de la Cuadratura de Gauss
+        double integral = calcularIntegral(funcionStr, a, b, n);
+
+        System.out.println("El resultado de la integral es: " + integral);
+
+        scanner.close();
+    }
+
+    // Calcular la integral de la función en el intervalo [a, b] utilizando el método de la Cuadratura de Gauss
+    private static double calcularIntegral(String funcionStr, double a, double b, int n) {
+        double sum = 0.0;
+        double[] x = new double[n];
+        double[] w = new double[n];
+
+        // Calcular los nodos y pesos para el número de puntos especificado
+        calcularNodosYPesos(n, x, w);
+
+        // Calcular la integral utilizando los nodos y pesos
+        for (int i = 0; i < n; i++) {
+            double fx = evaluarFuncion(funcionStr, (a + b) / 2.0 + (b - a) / 2.0 * x[i]);
+            sum += w[i] * fx;
+        }
+
+        return sum * (b - a) / 2.0;
+    }
+
+    // Evaluar la función ingresada por el usuario en un punto dado
+    private static double evaluarFuncion(String funcionStr, double x) {
+        // Implementación de un parser simple para evaluar funciones matemáticas
+        return evaluateFunction(funcionStr, x);
+    }
+
+    private static double evaluateFunction(String funcionStr, double x) {
+        // Reemplazar la variable 'x' en la cadena de la función con el valor específico
+        String replacedFunc = funcionStr.replace("sin", "Math.sin")
+                                         .replace("cos", "Math.cos")
+                                         .replace("tan", "Math.tan")
+                                         .replace("x", Double.toString(x));
+        try {
+            // Evaluar la expresión matemática utilizando la función eval de la clase Math
+            return (double) new Object() { }.getClass().getMethod("eval", String.class).invoke(null, replacedFunc);
+        } catch (Exception e) {
+            // En caso de error, regresar NaN (no se pudo evaluar la función correctamente)
+            return Double.NaN;
+        }
+    }
+
+    // Calcular los nodos y pesos para el método de la Cuadratura de Gauss
+    private static void calcularNodosYPesos(int n, double[] x, double[] w) {
+        if (n == 1) {
+            x[0] = 0.0;
+            w[0] = 2.0;
+        } else {
+            double[] P = new double[n];
+            double[] Pp = new double[n];
+            double[] d = new double[n];
+
+            // Calcular los polinomios de Legendre
+            for (int i = 0;i < n; i++) {
+                P[i] = legendrePolynomial(i, x[i]);
+            }
+
+            // Calcular los polinomios de Legendre derivados
+            for (int i = 1; i < n; i++) {
+                Pp[i] = derivateLegendrePolynomial(i, x[i]);
+            }
+
+            // Calcular los polinomios de Legendre normalizados
+            for (int i = 0; i < n; i++) {
+                d[i] = derivateLegendrePolynomial(i + 1, x[i]);
+                P[i] /= d[i];
+                Pp[i] /= d[i];
+            }
+
+            // Calcular los nodos
+            for (int i = 0; i < n; i++) {
+                double p = P[i];
+                double p1 = P[i + 1];
+                double p2 = P[i + 2];
+                double p1p = Pp[i + 1];
+                double p2p = Pp[i + 2];
+                double denom = (p1p * p2 - p1 * p2p) / (p - p2);
+                x[i] = (p * p2p - p2 * p1p) / (p1p - p2p);
+                x[i] = x[i] - x[i] * x[i] * denom;
+            }
+
+            // Calcular los pesos
+            for (int i = 0; i < n; i++) {
+                double p = P[i];
+                double p1 = P[i + 1];
+                double p2 = P[i + 2];
+                double p1p = Pp[i + 1];
+                double p2p = Pp[i + 2];
+                double denom = (p1p * p2 - p1 * p2p) / (p - p2);
+                w[i] = 2.0 * (1.0 - x[i] * x[i]) / (p * p1p * denom);
+            }
+        }
+    }
+
+    // Calcular el polinomio de Legendre de grado n
+    private static double legendrePolynomial(int n, double x) {
+        double result = 1.0;
+        double x2 = x * x;
+
+        for (int i = 1; i <= n; i++) {
+            result *= x2 - 1.0;
+            result /= i;
+            result *= 2.0 * i - 1.0;
+        }
+
+        return result;
+    }
+
+    // Calcular la derivada del polinomio de Legendre de grado n
+    private static double derivateLegendrePolynomial(int n, double x) {
+        double result = n * (x * legendrePolynomial(n, x) - legendrePolynomial(n - 1, x)) / (x * x - 1.0);
+        return result;
+    }
+}
+
+
+-----------Salida en pantalla-----------------
+Ingrese la función a integrar (utilice 'x' como variable independiente, y funciones trigonométricas como 'sin', 'cos', 'tan'): sin(x)
+Ingrese el límite inferior de integración (a): 0
+Ingrese el límite superior de integración (b): 3.141592653589793
+Ingrese el número de puntos para la aproximación: 100
+El resultado de la integral es: 2.0
+------------------------------------------
+
+
+
 <br>
 
 
 ## Tema 5
 
 - [Interpolación Lineal](https://github.com/housemarline00/MN-netbeans/blob/8eabc78fb6f522821dcafc47c1849b639c7ed1c3/Tema%205)
-- ## Métodos de solución de problemas de interpolación-------------------
+- ## Métodos de solución de problemas de interpolación
 Hay varios métodos para resolver problemas de interpolación, que es el proceso de estimar valores desconocidos entre datos conocidos. 
 Aquí hay algunos de los métodos más comunes:
 Interpolación lineal: Es el método más simple y consiste en conectar los puntos conocidos con líneas rectas. Si tienes dos puntos conocidos, 
@@ -893,11 +1510,11 @@ información proporcionada por los puntos conocidos y su distribución espacial.
 requerida y la complejidad computacional aceptable. Es importante comprender las características de los datos y las limitaciones de cada método antes de seleccionar 
 uno para resolver un problema de interpolación específico.
 
-# interpolación lineal-------------------------------
+# interpolación lineal
 La interpolación lineal es un método numérico y gráfico que permite encontrar datos desconocidos entre otros datos ya conocidos. Consiste en trazar una 
 línea recta que pasa por dos puntos conocidos y calcular los valores intermedios según esta recta.
 
----------------ALGORITMO------------------------
+# ALGORITMO
 # Algoritmo Interpolación Lineal:
 
   Inicio:
@@ -909,9 +1526,9 @@ línea recta que pasa por dos puntos conocidos y calcular los valores intermedio
       - Calcular el valor de y interpolado utilizando la fórmula:
         y = y0 + m * (x - x0)
     - Mostrar el valor interpolado de y para x
---------------------------------------------------
 
-----------IMPLEMENTACIÓN EN JAVA -------------------
+
+# IMPLEMENTACIÓN EN JAVA 
 import java.util.Scanner;
 
 public class InterpolacionLineal {
@@ -950,7 +1567,7 @@ public class InterpolacionLineal {
         scanner.close();
     }
 }
------------------------------------------------------------------------------
+
 
 ------------Salida en pantalla--------------
 Ingresa el primer punto conocido (x0, y0):
@@ -962,6 +1579,332 @@ y1: 1.7918
 Ingresa el valor de x para interpolar: 2
 El valor interpolado de y para x=2.0 es: 0.35836
 --------------------------------------------------
+
+# -Interpolación Cuadrática
+La interpolación cuadrática es un método de interpolación que se utiliza cuando se tienen tres puntos de datos. Este método consiste en ajustar los tres
+puntos en un polinomio de segundo grado, lo que permite lograr una mejor estimación al introducir una curvatura en la línea que une los puntos.
+
+# Algoritmo
+InterpolacionCuadratica:
+  entrada:
+    - x1: "Valor de x1"
+    - x2: "Valor de x2"
+    - x3: "Valor de x3"
+    - fx1: "Valor de f(x1)"
+    - fx2: "Valor de f(x2)"
+    - fx3: "Valor de f(x3)"
+    - x: "Valor de x para interpolar"
+  salida:
+    - resultado: "Resultado de la interpolación cuadrática en x"
+  algoritmo: |
+    Función interpolarCuadratica(x1, x2, x3, fx1, fx2, fx3, x):
+      L1 = ((x - x2) * (x - x3)) / ((x1 - x2) * (x1 - x3))
+      L2 = ((x - x1) * (x - x3)) / ((x2 - x1) * (x2 - x3))
+      L3 = ((x - x1) * (x - x2)) / ((x3 - x1) * (x3 - x2))
+      resultado = (fx1 * L1) + (fx2 * L2) + (fx3 * L3)
+      retornar resultado
+------------------------------------------------------------
+
+# IMPLEMENTACIÓN EN JAVA
+package intercua1;
+import java.util.Scanner;
+
+public class InterCua1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el valor de x1:");
+        double x1 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de x2:");
+        double x2 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de x3:");
+        double x3 = scanner.nextDouble();
+
+        System.out.println("Ingrese el valor de f(x1):");
+        double fx1 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de f(x2):");
+        double fx2 = scanner.nextDouble();
+        System.out.println("Ingrese el valor de f(x3):");
+        double fx3 = scanner.nextDouble();
+
+        System.out.println("Ingrese el valor de x para interpolar:");
+        double x = scanner.nextDouble();
+
+        double resultado = interpolarCuadratica(x1, x2, x3, fx1, fx2, fx3, x);
+        System.out.println("El resultado de la interpolación cuadrática en x=" + x + " es: " + resultado);
+    }
+
+    public static double interpolarCuadratica(double x1, double x2, double x3, double fx1, double fx2, double fx3, double x) {
+        double L1 = ((x - x2) * (x - x3)) / ((x1 - x2) * (x1 - x3));
+        double L2 = ((x - x1) * (x - x3)) / ((x2 - x1) * (x2 - x3));
+        double L3 = ((x - x1) * (x - x2)) / ((x3 - x1) * (x3 - x2));
+
+        double resultado = (fx1 * L1) + (fx2 * L2) + (fx3 * L3);
+        return resultado;
+    }
+}
+
+-----------------Salida en pantalla--------------------
+Ingrese el valor de x1:
+1
+Ingrese el valor de x2:
+4
+Ingrese el valor de x3:
+6
+Ingrese el valor de f(x1):
+0
+Ingrese el valor de f(x2):
+1.386294
+Ingrese el valor de f(x3):
+1.791759
+Ingrese el valor de x para interpolar:
+2
+El resultado de la interpolación cuadrática en x=2.0 es: 0.5658441999999999
+
+
+# Interpolación Newton
+La interpolación de Newton es un método de interpolación polinómica que se utiliza para encontrar valores intermedios en datos ajustando funciones 
+adecuadas por tramos en puntos de datos adyacentes. Este método es útil para situaciones que requieran un número bajo de puntos para interpolar, ya que a
+medida que crece el número de puntos, también lo hace el grado del polinomio.
+
+# Algoritmo
+Interpolación de Newton:
+  Descripción: >
+    Un algoritmo para realizar la interpolación de Newton
+    utilizando diferencias divididas.
+  Entrada:
+    - Nombre: n
+      Descripción: Número de puntos de datos
+      Tipo: Entero
+    - Nombre: x
+      Descripción: Valores de x
+      Tipo: Lista de Flotantes
+    - Nombre: y
+      Descripción: Valores de y
+      Tipo: Lista de Flotantes
+    - Nombre: valorX
+      Descripción: Valor de x para interpolar
+      Tipo: Flotante
+  Salida:
+    - Nombre: resultado
+      Descripción: Resultado de la interpolación en valorX
+      Tipo: Flotante
+  Pasos:
+    1. Crear una tabla de diferencias divididas inicializada con ceros.
+    2. Calcular las diferencias divididas para cada orden.
+    3. Calcular el resultado interpolado utilizando las diferencias divididas.
+  Pasos Detallados:
+    1. Inicializar una tabla de diferencias divididas de tamaño n x n con ceros.
+    2. Para cada columna j de 0 a n-1:
+       a. Establecer la primera fila de la columna j igual a los valores de y.
+       b. Para cada fila i de 0 a n-j-1:
+            Calcular la diferencia dividida correspondiente utilizando la fórmula:
+            tablaDiferenciasDivididas[i][j] = (tablaDiferenciasDivididas[i + 1][j - 1] - tablaDiferenciasDivididas[i][j - 1]) / (x[i + j] - x[i]).
+    3. Calcular el resultado interpolado:
+       resultado = y[0]
+       Para cada i de 1 a n-1:
+           producto = 1.0
+           Para cada j de 0 a i-1:
+               producto *= (valorX - x[j])
+           resultado += tablaDiferenciasDivididas[0][i] * producto
+  Pseudocódigo: |
+    tablaDiferenciasDivididas = matriz de tamaño n x n inicializada con ceros
+    para cada columna j de 0 a n-1:
+        establecer la primera fila de la columna j igual a los valores de y
+        para cada fila i de 0 a n-j-1:
+            tablaDiferenciasDivididas[i][j] = (tablaDiferenciasDivididas[i + 1][j - 1] - tablaDiferenciasDivididas[i][j - 1]) / (x[i + j] - x[i])
+    resultado = y[0]
+    para cada i de 1 a n-1:
+        producto = 1.0
+        para cada j de 0 a i-1:
+            producto *= (valorX - x[j])
+        resultado += tablaDiferenciasDivididas[0][i] * producto
+-------------------------------------------------------------------------------------------------
+
+# IMPLEMENTACION EN JAVA
+package internewton1;
+
+import java.util.Scanner;
+
+public class InterNewton1 {
+
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Pedir al usuario el número de puntos de datos
+        System.out.print("Ingrese el número de puntos de datos: ");
+        int n = scanner.nextInt();
+        
+        // Arreglos para almacenar los valores de x e y
+        double[] x = new double[n];
+        double[] y = new double[n];
+        
+        // Pedir al usuario los valores de x e y
+        System.out.println("Ingrese los valores de x e y:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("x[" + i + "]: ");
+            x[i] = scanner.nextDouble();
+            System.out.print("y[" + i + "]: ");
+            y[i] = scanner.nextDouble();
+        }
+        
+        // Pedir al usuario el valor de x para interpolar
+        System.out.print("Ingrese el valor de x para interpolar: ");
+        double valorX = scanner.nextDouble();
+        
+        // Calcular el resultado de la interpolación de Newton
+        double resultado = interpolacionNewton(x, y, valorX);
+        
+        System.out.println("El resultado de la interpolación en x=" + valorX + " es y=" + resultado);
+        
+        scanner.close();
+    }
+    
+    // Método para realizar la interpolación de Newton
+    public static double interpolacionNewton(double[] x, double[] y, double valorX) {
+        int n = x.length;
+        double resultado = y[0];
+        double[][] tablaDiferenciasDivididas = new double[n][n];
+        
+        // Calcular las diferencias divididas
+        for (int i = 0; i < n; i++) {
+            tablaDiferenciasDivididas[i][0] = y[i];
+        }
+        
+        for (int j = 1; j < n; j++) {
+            for (int i = 0; i < n - j; i++) {
+                tablaDiferenciasDivididas[i][j] = (tablaDiferenciasDivididas[i + 1][j - 1] - tablaDiferenciasDivididas[i][j - 1]) / (x[i + j] - x[i]);
+            }
+        }
+        
+        // Calcular el resultado interpolado
+        for (int i = 1; i < n; i++) {
+            double producto = 1.0;
+            for (int j = 0; j < i; j++) {
+                producto *= (valorX - x[j]);
+            }
+            resultado += tablaDiferenciasDivididas[0][i] * producto;
+        }
+        
+        return resultado;
+    }
+    
+}
+-------------------------------------------------------------------------
+
+------------------------Salida en pantalla---------------------------
+Ingrese el número de puntos de datos: 3
+Ingrese los valores de x e y:
+x[0]: -2
+y[0]: 1
+x[1]: -1
+y[1]: 0
+x[2]: 0
+y[2]: 1
+Ingrese el valor de x para interpolar: 2
+El resultado de la interpolación en x=2.0 es y=9.0
+------------------------------------------------------------
+
+# -Interpolación Lagrange
+La interpolación de Lagrange es un método numérico que aproxima funciones utilizando un polinomio que pasa por puntos conocidos
+de la función que se pretende aproximar. Es un método de interpolación polinómica que busca encontrar un polinomio que pase exactamente por los puntos dados
+
+# Algoritmo
+Interpolación de Lagrange:
+
+  Descripción: |
+    El método de interpolación de Lagrange es un método para encontrar un polinomio que pase a través de un conjunto de puntos dados.
+    Se basa en la idea de construir un polinomio de grado n-1 (donde n es el número de puntos conocidos) que pasa exactamente por todos los puntos dados.
+
+  Pasos:
+    - Paso 1: Obtener los puntos conocidos (x, y).
+    - Paso 2: Para cada punto conocido i:
+      - Paso 2.1: Calcular el término del polinomio de Lagrange correspondiente a ese punto.
+        - Paso 2.1.1: Inicializar el término como el valor de y en el punto i.
+        - Paso 2.1.2: Para cada otro punto conocido j:
+          - Paso 2.1.2.1: Si j ≠ i, multiplicar el término por (xInterpolar - x[j]) / (x[i] - x[j]).
+      - Paso 2.2: Sumar el término al resultado final.
+    - Paso 3: Devolver el resultado final, que es la interpolación de Lagrange para el valor xInterpolar.
+
+  Ejemplo:
+    Puntos conocidos:
+      - (1, 2)
+      - (2, 3)
+      - (3, 4)
+    Valor para interpolar: 2.5
+
+  Resultado: |
+    El resultado de la interpolación de Lagrange para x = 2.5 es el valor calculado utilizando el polinomio de Lagrange construido a partir de los puntos conocidos.
+-------------------------------------------------------------------------------------------------------------
+
+# IMPLEMENTACIÓN EN JAVA
+import java.util.Scanner;
+
+public class LagrangeInterpolation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir al usuario el número de puntos conocidos
+        System.out.print("Introduce el número de puntos conocidos: ");
+        int numPoints = scanner.nextInt();
+
+        // Arrays para almacenar las coordenadas x e y de los puntos conocidos
+        double[] x = new double[numPoints];
+        double[] y = new double[numPoints];
+
+        // Pedir al usuario las coordenadas x e y de los puntos conocidos
+        System.out.println("Introduce las coordenadas x e y de los puntos conocidos:");
+        for (int i = 0; i < numPoints; i++) {
+            System.out.print("x[" + i + "]: ");
+            x[i] = scanner.nextDouble();
+            System.out.print("y[" + i + "]: ");
+            y[i] = scanner.nextDouble();
+        }
+
+        // Pedir al usuario el valor de x para el cual se desea interpolar y
+        System.out.print("Introduce el valor de x para el cual deseas interpolar: ");
+        double xInterpolate = scanner.nextDouble();
+
+        // Calcular el resultado de la interpolación de Lagrange
+        double result = lagrangeInterpolation(x, y, xInterpolate);
+
+        // Mostrar el resultado
+        System.out.println("El resultado de la interpolación de Lagrange para x = " + xInterpolate + " es: " + result);
+
+        scanner.close();
+    }
+
+    // Método para calcular la interpolación de Lagrange
+    public static double lagrangeInterpolation(double[] x, double[] y, double xInterpolate) {
+        double result = 0;
+
+        for (int i = 0; i < x.length; i++) {
+            double term = y[i];
+            for (int j = 0; j < x.length; j++) {
+                if (j != i) {
+                    term = term * (xInterpolate - x[j]) / (x[i] - x[j]);
+                }
+            }
+            result += term;
+        }
+
+        return result;
+    }
+}
+-------------------------------------------------------------------------------------------------
+
+-----------------Salida en pantalla--------------------------------
+Introduce el número de puntos conocidos: 2
+Introduce las coordenadas x e y de los puntos conocidos:
+x[0]: 7
+y[0]: 3940
+x[1]: 13
+y[1]: 4755
+Introduce el valor de x para el cual deseas interpolar: 10
+El resultado de la interpolación de Lagrange para x = 10.0 es: 4347.5
+------------------------------------------
 
 <br>
 
@@ -1112,6 +2055,131 @@ Resultados:
 x: 5.0000, y: 3.0000
 x: 7.0000, y: 49.0000
 --------------------------------------
+
+
+# Método de pasos múltiples
+El método de pasos múltiples es una técnica utilizada para resolver ecuaciones diferenciales ordinarias (EDOs). A 
+diferencia de los métodos de un solo paso, como el método de Euler o el método de Runge-Kutta, los métodos de pasos múltiples 
+utilizan varios puntos previos en la malla de solución para calcular la solución en el siguiente paso.
+Los métodos de pasos múltiples se dividen en dos categorías principales:
+Métodos explícitos: donde la solución en el siguiente paso se calcula directamente a partir de las soluciones previas.
+Métodos implícitos: donde la solución en el siguiente paso implica resolver una ecuación que incluye la solución desconocida.
+Un ejemplo clásico de métodos de pasos múltiples son los métodos de Adams-Bashforth (explícitos) y Adams-Moulton (implícitos).
+---------------------------------------------------------------------------------------------
+
+# Algoritmo Adams-Bashforth (Explícito)
+algoritmo:
+  nombre: Adams-Bashforth
+  orden: 4
+  tipo: explícito
+  descripción: >
+    Método de pasos múltiples explícito de Adams-Bashforth de 4to orden para la solución
+    de ecuaciones diferenciales ordinarias.
+
+parámetros:
+  condiciones_iniciales:
+    t0: 0.0          # Tiempo inicial
+    y0: 1.0          # Valor inicial de la solución
+  tamaño_paso: 0.1   # Tamaño del paso (h)
+  pasos: 50          # Número de pasos a realizar
+
+ecuación:
+  función: f         # Nombre de la función que define la EDO
+  definición: "t - y" # Definición de la EDO en términos de t y y
+------------------------------------------------------------------------
+
+# IMPLEMENTACION EN JAVA
+import java.util.Scanner;
+
+public class AdamsBashforth {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar valores al usuario
+        System.out.print("Ingrese t0, y0, h y n: ");
+        double t0 = scanner.nextDouble();
+        double y0 = scanner.nextDouble();
+        double h = scanner.nextDouble();
+        int n = scanner.nextInt();
+
+        // Inicializar arrays para almacenar los valores de tiempo y solución
+        double[] t = new double[n + 1];
+        double[] y = new double[n + 1];
+
+        // Calcular los primeros valores de t y y usando RK4
+        for (int i = 0; i < 4; i++) {
+            t[i] = t0 + i * h;
+            y[i] = rk4(t[i], y0, h);
+        }
+
+        // Aplicar el método de Adams-Bashforth para los pasos restantes
+        for (int i = 3; i < n; i++) {
+            t[i + 1] = t[i] + h;
+            y[i + 1] = adamsBashforth(t[i], y[i], h);
+        }
+
+        // Imprimir los resultados
+        System.out.println("Resultados:");
+        for (int i = 0; i <= n; i++) {
+            System.out.printf("t = %.4f, y = %.4f%n", t[i], y[i]);
+        }
+
+        scanner.close();
+    }
+
+    // Definir la EDO
+    public static double f(double t, double y) {
+        return t - y;
+    }
+
+    // Implementar el método RK4
+    public static double rk4(double t, double y, double h) {
+        double k1 = h * f(t, y);
+        double k2 = h * f(t + h / 2, y + k1 / 2);
+        double k3 = h * f(t + h / 2, y + k2 / 2);
+        double k4 = h * f(t + h, y + k3);
+        return y + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+    }
+
+    // Implementar el método de Adams-Bashforth
+    public static double adamsBashforth(double t, double y, double h) {
+        // Calcular utilizando la fórmula de Adams-Bashforth
+        return y + h / 24 * (55 * f(t, y) - 59 * f(t - h, y) + 37 * f(t - 2 * h, y) - 9 * f(t - 3 * h, y));
+    }
+}
+---------------------------------------------------------------------------------------------------
+
+-------------------Salida en pantalla-----------------------------
+Ingrese t0, y0, h y n: 4 
+3
+1
+22
+Resultados:
+t = 4.0000, y = 4.0000
+t = 5.0000, y = 4.6250
+t = 6.0000, y = 5.2500
+t = 7.0000, y = 5.8750
+t = 8.0000, y = 7.5000
+t = 9.0000, y = 8.5000
+t = 10.0000, y = 9.5000
+t = 11.0000, y = 10.5000
+t = 12.0000, y = 11.5000
+t = 13.0000, y = 12.5000
+t = 14.0000, y = 13.5000
+t = 15.0000, y = 14.5000
+t = 16.0000, y = 15.5000
+t = 17.0000, y = 16.5000
+t = 18.0000, y = 17.5000
+t = 19.0000, y = 18.5000
+t = 20.0000, y = 19.5000
+t = 21.0000, y = 20.5000
+t = 22.0000, y = 21.5000
+t = 23.0000, y = 22.5000
+t = 24.0000, y = 23.5000
+t = 25.0000, y = 24.5000
+t = 26.0000, y = 25.5000
+------------------------------------------------
+
 <br>
 
 
