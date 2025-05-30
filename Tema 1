@@ -1,0 +1,17 @@
+En métodos numéricos, los errores son discrepancias entre el valor exacto de una solución y el valor aproximado obtenido por el método. Estos errores se clasifican principalmente en los siguientes tipos:
+
+# Error de redondeo: Surge debido a la representación finita de números en computadoras. Los números reales se aproximan a números de punto flotante, lo que introduce pequeños errores en cada operación aritmética. Por ejemplo, al representar π o √2 en un sistema con precisión limitada.
+# Error de truncamiento: Ocurre cuando se aproxima una función o un proceso matemático infinito por uno finito. Por ejemplo, al usar una serie de Taylor truncada para aproximar una función como sin(x), se descartan términos de orden superior, lo que genera un error.
+# Error de discretización: Relacionado con el truncamiento, aparece al discretizar un problema continuo, como en la resolución de ecuaciones diferenciales mediante métodos como Euler o Runge-Kutta, donde se reemplazan derivadas por diferencias finitas.
+# Error de propagación: Se produce cuando los errores iniciales (de redondeo o truncamiento) se acumulan o amplifican a lo largo de las iteraciones de un algoritmo. Puede ser significativo en métodos iterativos como el de Newton-Raphson.
+# Error de datos o de entrada: Proviene de imprecisiones en los datos iniciales o parámetros del problema, como mediciones experimentales inexactas.
+# Error absoluto y relativo:
+
+# Error absoluto: Diferencia entre el valor exacto
+
+# Error relativo: Error absoluto dividido por el valor exacto (si no es cero):
+
+
+
+# Error de convergencia: En métodos iterativos, es la diferencia entre la solución aproximada en una iteración y la solución exacta, relacionada con la velocidad de convergencia del método.
+# Error de estabilidad: Surge en algoritmos sensibles a pequeñas perturbaciones en los datos o cálculos, lo que puede llevar a resultados muy diferentes. Por ejemplo, en sistemas mal condicionados.
